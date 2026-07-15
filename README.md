@@ -110,7 +110,7 @@ python3 skill/scripts/name_audit.py 叶知意 陆沉川 --json
 安装可选依赖：
 
 ```bash
-python3 -m pip install -r skill/requirements-voice.txt
+python3 skill/scripts/install_voice_dependency.py
 ```
 
 检查同音、声母、韵母、声调和声音轮廓碰撞：
@@ -155,10 +155,12 @@ skill/
 └── scripts/
     ├── name_audit.py
     ├── voice_audit.py
+    ├── install_voice_dependency.py
     └── blind_test.py
 tests/
 ├── test_name_audit.py
 ├── test_voice_audit.py
+├── test_install_voice_dependency.py
 └── test_blind_test.py
 benchmarks/
 ├── README.md
@@ -174,7 +176,7 @@ scripts/
 核心 Skill 使用 Python 标准库，建议 Python 3.10 或更高版本。普通话语音检查额外使用固定版本的 `pypinyin`。
 
 ```bash
-python3 -m pip install -r skill/requirements-voice.txt
+python3 skill/scripts/install_voice_dependency.py
 python3 -m unittest discover -s tests -v
 python3 scripts/validate_skill.py
 python3 scripts/validate_benchmarks.py

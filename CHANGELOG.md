@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+## [0.3.1] - 2026-07-15
+
+### Fixed
+
+- 新增 Skill 本地隔离环境安装器，避开 macOS/Homebrew Python 的 PEP 668 系统环境限制；
+- 语音审计会自动发现 `.voice-venv`，用户无需激活环境或修改系统 Python。
+
 ## [0.3.0] - 2026-07-15
 
 ### Added
@@ -46,7 +53,8 @@
 - 取名方法与反 AI 味盲审参考；
 - 姓名机械风险检查脚本及基础测试。
 
-[Unreleased]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.3.1...HEAD
+[0.3.1]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/kunhai-88/character-naming-author-skill/releases/tag/v0.1.0

@@ -7,14 +7,32 @@ import argparse
 from difflib import SequenceMatcher
 import itertools
 import json
+from pathlib import Path
 import re
+import sys
 from typing import Iterable
+
+
+def local_site_package_candidates(venv_root: Path) -> list[Path]:
+    candidates = [venv_root / "Lib" / "site-packages"]
+    candidates.extend(sorted(venv_root.glob("lib/python*/site-packages")))
+    return candidates
+
+
+def add_local_voice_environment() -> None:
+    venv_root = Path(__file__).resolve().parents[1] / ".voice-venv"
+    for candidate in local_site_package_candidates(venv_root):
+        if candidate.is_dir() and str(candidate) not in sys.path:
+            sys.path.insert(0, str(candidate))
+
+
+add_local_voice_environment()
 
 try:
     from pypinyin import Style, lazy_pinyin
     from pypinyin.contrib.tone_convert import to_finals, to_initials
 except ImportError as exc:  # pragma: no cover - exercised by CLI environments
-    raise SystemExit("需要可选依赖 pypinyin：python3 -m pip install 'pypinyin>=0.55,<0.56'") from exc
+    raise SystemExit("需要语音依赖，请先运行：python3 scripts/install_voice_dependency.py") from exc
 
 
 COMPOUND_SURNAMES = {
