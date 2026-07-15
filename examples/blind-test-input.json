@@ -1,0 +1,29 @@
+{
+  "case_id": "anonymous-craftswoman",
+  "character_context": "1980年代出生于县城的手艺人。父母为普通职工，成年后靠自己的手艺获得邻里认可。",
+  "dialogue": [
+    "母亲在饭桌上叫她回家。",
+    "客户在铺面门口请她修一件旧物。",
+    "工作人员要求她确认本人签名。"
+  ],
+  "candidates": [
+    {
+      "name": "曹晓琴",
+      "family_call": "二琴",
+      "social_call": "曹师傅",
+      "explanation": "家庭排行与职业称呼"
+    },
+    {
+      "name": "赵红梅",
+      "family_call": "梅子",
+      "social_call": "赵师傅",
+      "explanation": "年代常见取法"
+    },
+    {
+      "name": "梁小凤",
+      "family_call": "小凤",
+      "social_call": "梁姐",
+      "explanation": "家庭日常叫法"
+    }
+  ]
+}

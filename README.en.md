@@ -21,6 +21,8 @@ Instead of assembling attractive characters from personality labels—or treatin
 - designs public, private, formal, and adversarial forms of address;
 - calibrates period and regional plausibility with public, privacy-respecting name neighborhoods when needed;
 - plans the first use, relational change, and final narrative return of a name;
+- provides optional Mandarin initial, final, tone, homophone, and cast-collision checks;
+- prepares local blind tests and records human feedback without uploading manuscripts;
 - reviews the result without relying on symbolic explanations;
 - flags mechanical collisions with a deterministic Python tool.
 
@@ -48,9 +50,10 @@ The method and output are written primarily for Chinese-language character namin
 
 ## Development
 
-Python 3.10+ is recommended. The project uses only the standard library.
+Python 3.10+ is recommended. Core checks use the standard library; Mandarin voice analysis uses the pinned optional `pypinyin` dependency.
 
 ```bash
+python3 -m pip install -r skill/requirements-voice.txt
 python3 -m unittest discover -s tests -v
 python3 scripts/validate_skill.py
 python3 scripts/validate_benchmarks.py
@@ -63,5 +66,7 @@ python3 scripts/package_skill.py
 - Frequent characters are review hints, not forbidden words.
 - Period and regional judgments require reliable character context.
 - The project does not collect or upload user manuscripts.
+- Mandarin phonetic checks do not replace dialect review or actor read-throughs.
+- Human blind-test results remain local and do not become permanent preferences from a single vote.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and the [MIT License](LICENSE).

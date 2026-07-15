@@ -64,7 +64,12 @@ def main() -> None:
         SKILL_ROOT / "references" / "memorability-and-ownership.md",
         SKILL_ROOT / "references" / "candidate-selection.md",
         SKILL_ROOT / "references" / "reality-calibration.md",
+        SKILL_ROOT / "references" / "naming-mechanism-library.md",
+        SKILL_ROOT / "references" / "human-evaluation.md",
         SKILL_ROOT / "scripts" / "name_audit.py",
+        SKILL_ROOT / "scripts" / "voice_audit.py",
+        SKILL_ROOT / "scripts" / "blind_test.py",
+        SKILL_ROOT / "requirements-voice.txt",
     ]
     for path in expected:
         if not path.is_file():

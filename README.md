@@ -105,6 +105,39 @@ python3 skill/scripts/name_audit.py 叶知意 陆沉川 --json
 
 提示项不是禁用词表。最终判断必须回到人物、家庭和对白。
 
+### 普通话语音检查
+
+安装可选依赖：
+
+```bash
+python3 -m pip install -r skill/requirements-voice.txt
+```
+
+检查同音、声母、韵母、声调和声音轮廓碰撞：
+
+```bash
+python3 skill/scripts/voice_audit.py 章宁 张凝 赵建军 梁二
+```
+
+多音字或特殊读音必须人工覆盖：
+
+```bash
+python3 skill/scripts/voice_audit.py 单超 山超 --pronunciation 单超=shan4,chao1
+```
+
+语音工具使用 [pypinyin](https://pypi.org/project/pypinyin/)，只提示普通话听觉风险，不替代方言、演员朗读和文学判断。
+
+### 本地人类盲测
+
+```bash
+python3 skill/scripts/blind_test.py prepare examples/blind-test-input.json work/blind-session.json --seed 7
+python3 skill/scripts/blind_test.py record work/blind-session.json work/feedback.jsonl \
+  --winner A --most-real A --most-memorable B --most-owned A \
+  --recalled-name 曹晓琴 --reason-code memorable_real
+```
+
+盲测会随机候选并删除解释。反馈只写入用户指定的本地 JSONL，不进行网络上传。
+
 ## 目录
 
 ```text
@@ -115,11 +148,18 @@ skill/
 │   ├── anti-ai-audit.md
 │   ├── memorability-and-ownership.md
 │   ├── candidate-selection.md
-│   └── reality-calibration.md
+│   ├── reality-calibration.md
+│   ├── naming-mechanism-library.md
+│   └── human-evaluation.md
+├── requirements-voice.txt
 └── scripts/
-    └── name_audit.py
+    ├── name_audit.py
+    ├── voice_audit.py
+    └── blind_test.py
 tests/
-└── test_name_audit.py
+├── test_name_audit.py
+├── test_voice_audit.py
+└── test_blind_test.py
 benchmarks/
 ├── README.md
 └── regression_cases.json
@@ -131,9 +171,10 @@ scripts/
 
 ## 开发与验证
 
-本项目仅使用 Python 标准库，建议 Python 3.10 或更高版本。
+核心 Skill 使用 Python 标准库，建议 Python 3.10 或更高版本。普通话语音检查额外使用固定版本的 `pypinyin`。
 
 ```bash
+python3 -m pip install -r skill/requirements-voice.txt
 python3 -m unittest discover -s tests -v
 python3 scripts/validate_skill.py
 python3 scripts/validate_benchmarks.py
@@ -151,6 +192,8 @@ python3 scripts/package_skill.py
 - 好名字无法脱离故事、家庭和称呼关系单独成立。
 - “真实但能搬进十部剧”的主角名仍会被淘汰；
 - 定性 benchmark 固化重要判断边界，但不伪装成文学质量自动评分器。
+- 普通话拼音检查不能替代方言与真人围读，多音字必须确认实际读法；
+- 人类盲测用于校准，不把单次选择自动外推成稳定审美。
 
 ## 贡献
 

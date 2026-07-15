@@ -11,13 +11,14 @@
 ## 本地验证
 
 ```bash
+python3 -m pip install -r skill/requirements-voice.txt
 python3 -m unittest discover -s tests -v
 python3 scripts/validate_skill.py
 python3 scripts/validate_benchmarks.py
 python3 scripts/package_skill.py
 ```
 
-所有命令均应在仓库根目录运行，并且不能依赖 Python 标准库以外的包。
+所有命令均应在仓库根目录运行。核心脚本保持标准库兼容；语音检查只允许使用 `skill/requirements-voice.txt` 中固定的可选依赖。
 
 ## 修改原则
 
@@ -29,6 +30,8 @@ python3 scripts/package_skill.py
 - 主角名必须同时验证真实性、复述性与剧情占有，不接受只降低 AI 味的改动；
 - 新的定性边界应添加匿名化 regression case，但不得声称自动化脚本能判断文学质量；
 - 新增脚本行为必须补充测试。
+- 语音规则必须输出可解释信号，不能把拼音相似度包装成文学评分；
+- 盲测工具不得默认上传候选、剧本或测试者信息。
 
 ## Pull Request
 
