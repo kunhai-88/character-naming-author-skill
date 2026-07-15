@@ -1,0 +1,23 @@
+name: Feature request
+description: 提议新的命名场景、规则或工具改进
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    attributes:
+      label: 失败场景
+      description: 现有方法在哪个具体、匿名化的案例中失效？
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 建议方案
+      description: 期望增加或修改什么？为什么不会变成机械规则？
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 验收方式
+      description: 如何判断改进确实有效？
+    validations:
+      required: true
