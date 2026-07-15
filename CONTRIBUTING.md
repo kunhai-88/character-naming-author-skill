@@ -11,14 +11,14 @@
 ## 本地验证
 
 ```bash
-python3 -m pip install -r skill/requirements-voice.txt
+python3 skill/scripts/install_voice_dependency.py
 python3 -m unittest discover -s tests -v
 python3 scripts/validate_skill.py
 python3 scripts/validate_benchmarks.py
 python3 scripts/package_skill.py
 ```
 
-所有命令均应在仓库根目录运行。核心脚本保持标准库兼容；语音检查只允许使用 `skill/requirements-voice.txt` 中固定的可选依赖。
+所有命令均应在仓库根目录运行。核心脚本保持标准库兼容；安装器会把 `skill/requirements-voice.txt` 中固定的可选依赖放进 Skill 自己的 `.voice-venv`，不修改系统 Python。
 
 ## 修改原则
 

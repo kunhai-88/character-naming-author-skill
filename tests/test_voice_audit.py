@@ -11,6 +11,11 @@ SPEC.loader.exec_module(VOICE_AUDIT)
 
 
 class VoiceAuditTests(unittest.TestCase):
+    def test_finds_local_site_packages(self):
+        root = Path(".voice-venv")
+        candidates = VOICE_AUDIT.local_site_package_candidates(root)
+        self.assertEqual(candidates[0], root / "Lib" / "site-packages")
+
     def test_detects_full_homophone(self):
         result = VOICE_AUDIT.audit(["章宁", "张凝"])
         finding = next(item for item in result["findings"] if item["names"] == ["章宁", "张凝"])

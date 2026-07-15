@@ -8,7 +8,7 @@
 
 ## Validation
 
-- [ ] `python3 -m pip install -r skill/requirements-voice.txt`
+- [ ] `python3 skill/scripts/install_voice_dependency.py`
 - [ ] `python3 -m unittest discover -s tests -v`
 - [ ] `python3 scripts/validate_skill.py`
 - [ ] `python3 scripts/validate_benchmarks.py`
