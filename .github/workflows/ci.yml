@@ -32,7 +32,7 @@ jobs:
         run: python -m zipfile --test dist/character-naming-author.skill
       - name: Upload package
         if: matrix.python-version == '3.13'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: character-naming-author-skill
           path: dist/character-naming-author.skill
