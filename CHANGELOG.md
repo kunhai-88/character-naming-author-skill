@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-07-15
+
 ### Added
 
 - “真实底盘＋一个干净异常点”的正向命名方法；
@@ -27,5 +29,6 @@
 - 取名方法与反 AI 味盲审参考；
 - 姓名机械风险检查脚本及基础测试。
 
-[Unreleased]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/kunhai-88/character-naming-author-skill/releases/tag/v0.1.0
