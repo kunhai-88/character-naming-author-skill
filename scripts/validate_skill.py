@@ -61,6 +61,9 @@ def main() -> None:
     expected = [
         SKILL_ROOT / "references" / "author-naming-method.md",
         SKILL_ROOT / "references" / "anti-ai-audit.md",
+        SKILL_ROOT / "references" / "memorability-and-ownership.md",
+        SKILL_ROOT / "references" / "candidate-selection.md",
+        SKILL_ROOT / "references" / "reality-calibration.md",
         SKILL_ROOT / "scripts" / "name_audit.py",
     ]
     for path in expected:

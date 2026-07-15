@@ -1,0 +1,44 @@
+[
+  {
+    "id": "reject_label-built-family",
+    "genre": "现实家庭短剧",
+    "names": ["叶知意", "陆沉川", "陆安然", "陆守诚", "乔若薇"],
+    "expected": "reject-system",
+    "reason": "整套名字由类型字与人物功能组成，家庭过度整齐"
+  },
+  {
+    "id": "reject-real-but-transferable-protagonist",
+    "genre": "现代人进入玄幻世界",
+    "names": ["周平"],
+    "expected": "reject-protagonist",
+    "reason": "真实但缺少可复述的生活抓手，可无损搬入大量同类故事"
+  },
+  {
+    "id": "preserve-rank-based-worker",
+    "genre": "古代灾年",
+    "names": ["梁二"],
+    "expected": "preserve",
+    "reason": "排行、劳动身份与口头声音共同成立，异常点单一且来自生活"
+  },
+  {
+    "id": "preserve-but-build-calling-system",
+    "genre": "现实家庭短剧",
+    "names": ["陈静"],
+    "expected": "strengthen-calls",
+    "reason": "出生与开口可信，但主角记忆力依赖许师傅、小静等关系称呼和关键叫名"
+  },
+  {
+    "id": "transform-formal-name-into-public-private-system",
+    "genre": "海洋玄幻",
+    "names": ["柳六六"],
+    "expected": "transform-system",
+    "reason": "直接作为正式名偏网文化，但阿七与未公开真名可以被人物设定和剧情占有"
+  },
+  {
+    "id": "conditional-imposed-religious-name",
+    "genre": "仙侠",
+    "names": ["赤烛"],
+    "expected": "conditional",
+    "reason": "作为自然本名会预告能力；作为宗门强加、人物最终拒绝的法号可以成立"
+  }
+]

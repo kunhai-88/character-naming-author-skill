@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import itertools
 import json
 
@@ -49,6 +50,15 @@ def audit(names: list[str]) -> dict:
         if len(left) == len(right) and left[-1] == right[-1]:
             findings.append({"type": "same_ending", "names": [left, right], "detail": "同长度且尾字相同"})
 
+    if len(cleaned) >= 5:
+        length, count = Counter(map(len, cleaned)).most_common(1)[0]
+        if count / len(cleaned) >= 0.8:
+            findings.append({
+                "type": "uniform_length",
+                "names": cleaned,
+                "detail": f"{count}/{len(cleaned)} 个姓名都是 {length} 字，检查整剧是否过度整齐",
+            })
+
     return {"names": cleaned, "finding_count": len(findings), "findings": findings}
 
 
@@ -65,7 +75,7 @@ def main() -> None:
     for item in result["findings"]:
         print(f"- {' / '.join(item['names'])}: {item['detail']}")
     if not result["findings"]:
-        print("- 未发现机械性风险；仍需进行人物与对白盲审。")
+        print("- 未发现机械性风险；仍需进行复述、称呼与剧情占有盲审。")
 
 
 if __name__ == "__main__":

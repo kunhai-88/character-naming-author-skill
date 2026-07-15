@@ -18,7 +18,9 @@ jobs:
       - name: Test
         run: python -m unittest discover -s tests -v
       - name: Validate and package
-        run: python scripts/package_skill.py
+        run: |
+          python scripts/validate_benchmarks.py
+          python scripts/package_skill.py
       - name: Create GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
