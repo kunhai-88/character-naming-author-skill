@@ -4,6 +4,23 @@
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-07-15
+
+### Added
+
+- 12 类作者级正向命名机制库，覆盖排行、辈分、乳名、职业称呼、登记偶然、公私双名、被命名与夺名等来源；
+- 基于 `pypinyin 0.55.0` 的普通话声母、韵母、声调、同音与声音相似检查；
+- 多音字和特殊姓名读音的人工覆盖；
+- 本地匿名盲测准备、随机候选、十分钟回忆记录与 JSONL 反馈汇总；
+- 反馈原因码与“跨项目重复后才升级为偏好规则”的校准门禁；
+- 语音工具和盲测工具的自动测试与 CI 依赖验证。
+
+### Changed
+
+- 候选生成必须先选择生活机制，不再只从抽象来源卡发散；
+- 整剧核心人物超过三人时，增加可解释的普通话声音碰撞检查；
+- 用户审美学习从“喜欢哪些字”改为记录失败机制和盲选证据。
+
 ## [0.2.0] - 2026-07-15
 
 ### Added
@@ -29,6 +46,7 @@
 - 取名方法与反 AI 味盲审参考；
 - 姓名机械风险检查脚本及基础测试。
 
-[Unreleased]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/kunhai-88/character-naming-author-skill/releases/tag/v0.1.0
