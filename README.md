@@ -9,7 +9,7 @@
 
 一个面向中文短剧、影视剧、小说、AI 漫剧和原创故事的作者式角色取名 Skill。
 
-它不把“坚韧、温柔、深沉”等人物标签拼成漂亮名字，而是先还原：这个人物出生在哪一年、什么地方，谁替他取名，以及这个家庭当时为什么会取出这个名字。
+它不把“坚韧、温柔、深沉”等人物标签拼成漂亮名字，也不把“普通”误当作高级。它先还原人物的出生与取名现场，再用一个来自真实生活的干净异常点建立记忆，通过称呼关系和关键场面让名字被剧情占有。
 
 ## 它解决什么问题
 
@@ -28,17 +28,21 @@
 → 还原剧中取名者
 → 确定年代、地域、阶层和家庭来源
 → 建立真实姓名带宽
+→ 找到一个生活来源的干净异常点
 → 生成少量异源候选
 → 放回四种人物关系中试演
-→ 隐藏寓意做反 AI 味盲审
+→ 设计名字的首次出现、关系变调与结尾回收
+→ 隐藏寓意做两两盲选
 → 只交付一个首选和必要的备选
 ```
 
-好名字需要通过三关：
+好名字需要通过五关：
 
 1. **出生关**：人物的父母真可能在那个时间地点取出它；
 2. **开口关**：长辈、爱人、对手和陌生人都能自然叫出口；
-3. **遗忘关**：删掉作者解释后名字仍然成立，人物演完后观众才觉得它只能属于他。
+3. **辨认关**：只听声音也能与同剧人物分开；
+4. **复述关**：合上人物表十分钟后仍能说出；
+5. **占有关**：经过关系和剧情后逐渐只属于这个人物。
 
 ## 安装
 
@@ -74,6 +78,8 @@ cp -R skill ~/.codex/skills/character-naming-author
 
 建议同时提供人物出生年份、地域、家庭出身、取名者、关键关系和至少一段冲突对白。材料不全时，Skill 会指出哪个事实会实质改变名字，而不是用漂亮字义掩盖猜测。
 
+Skill 支持单角色新取名、现有名字修复、整剧姓名系统和历史/地域校准四种模式。完整推理在内部执行，默认只交付一个首选、来源、称呼系统、试演和最大风险，避免把用户淹没在候选清单里。
+
 完整示例见 [快速示例](examples/quickstart.md)。
 
 ## 确定性检查工具
@@ -81,13 +87,13 @@ cp -R skill ~/.codex/skills/character-naming-author
 附带的检查脚本只提示机械风险，不替代文学判断：
 
 ```bash
-python3 skill/scripts/name_audit.py 林知夏 顾泽川 顾安然 白薇
+python3 skill/scripts/name_audit.py 叶知意 陆沉川 陆安然 乔若薇
 ```
 
 JSON 输出：
 
 ```bash
-python3 skill/scripts/name_audit.py 林知夏 顾泽川 --json
+python3 skill/scripts/name_audit.py 叶知意 陆沉川 --json
 ```
 
 它会提示：
@@ -106,13 +112,20 @@ skill/
 ├── SKILL.md
 ├── references/
 │   ├── author-naming-method.md
-│   └── anti-ai-audit.md
+│   ├── anti-ai-audit.md
+│   ├── memorability-and-ownership.md
+│   ├── candidate-selection.md
+│   └── reality-calibration.md
 └── scripts/
     └── name_audit.py
 tests/
 └── test_name_audit.py
+benchmarks/
+├── README.md
+└── regression_cases.json
 scripts/
 ├── validate_skill.py
+├── validate_benchmarks.py
 └── package_skill.py
 ```
 
@@ -123,10 +136,11 @@ scripts/
 ```bash
 python3 -m unittest discover -s tests -v
 python3 scripts/validate_skill.py
+python3 scripts/validate_benchmarks.py
 python3 scripts/package_skill.py
 ```
 
-打包产物位于 `dist/character-naming-author.skill`。CI 会在 Python 3.10—3.13 上运行测试、验证 Skill 结构并生成安装包。
+打包产物位于 `dist/character-naming-author.skill`。CI 会在 Python 3.10—3.13 上运行测试、验证 Skill 结构与定性回归案例，并生成安装包。
 
 ## 设计边界
 
@@ -135,6 +149,8 @@ python3 scripts/package_skill.py
 - 时代与地域姓名判断需要可靠人物背景，不能靠模型臆测；
 - 本项目不会收集或上传用户剧本；
 - 好名字无法脱离故事、家庭和称呼关系单独成立。
+- “真实但能搬进十部剧”的主角名仍会被淘汰；
+- 定性 benchmark 固化重要判断边界，但不伪装成文学质量自动评分器。
 
 ## 贡献
 

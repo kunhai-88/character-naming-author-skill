@@ -8,7 +8,7 @@ English | [简体中文](README.md)
 
 An Agent Skill for naming and auditing characters in Chinese short dramas, screenplays, fiction, and AI-generated drama projects.
 
-Instead of assembling attractive characters from personality labels, the Skill reconstructs who named the character, when and where they were born, and what that family could realistically have chosen at the time.
+Instead of assembling attractive characters from personality labels—or treating bland realism as literary quality—the Skill reconstructs the naming situation, adds one life-derived point of distinction, and lets relationships and scenes make the name memorable.
 
 ## What it does
 
@@ -17,6 +17,10 @@ Instead of assembling attractive characters from personality labels, the Skill r
 - reconstructs period, region, class, family, and naming authority;
 - distinguishes legal names, childhood names, aliases, titles, and religious names;
 - tests names in intimate, everyday, adversarial, and formal dialogue;
+- tests unaided recall and resistance to being transplanted into unrelated stories;
+- designs public, private, formal, and adversarial forms of address;
+- calibrates period and regional plausibility with public, privacy-respecting name neighborhoods when needed;
+- plans the first use, relational change, and final narrative return of a name;
 - reviews the result without relying on symbolic explanations;
 - flags mechanical collisions with a deterministic Python tool.
 
@@ -49,6 +53,7 @@ Python 3.10+ is recommended. The project uses only the standard library.
 ```bash
 python3 -m unittest discover -s tests -v
 python3 scripts/validate_skill.py
+python3 scripts/validate_benchmarks.py
 python3 scripts/package_skill.py
 ```
 

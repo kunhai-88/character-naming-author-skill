@@ -13,6 +13,7 @@
 ```bash
 python3 -m unittest discover -s tests -v
 python3 scripts/validate_skill.py
+python3 scripts/validate_benchmarks.py
 python3 scripts/package_skill.py
 ```
 
@@ -25,6 +26,8 @@ python3 scripts/package_skill.py
 - 确定性、可重复的检查放入 `skill/scripts/`；
 - 不把高频字提示扩张成机械禁用词表；
 - 每条新规则必须能对应一个明确失败模式；
+- 主角名必须同时验证真实性、复述性与剧情占有，不接受只降低 AI 味的改动；
+- 新的定性边界应添加匿名化 regression case，但不得声称自动化脚本能判断文学质量；
 - 新增脚本行为必须补充测试。
 
 ## Pull Request
