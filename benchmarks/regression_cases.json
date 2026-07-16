@@ -40,5 +40,29 @@
     "names": ["赤烛"],
     "expected": "conditional",
     "reason": "作为自然本名会预告能力；作为宗门强加、人物最终拒绝的法号可以成立"
+  },
+  {
+    "id": "reject-backfilled-rustic-gimmick",
+    "genre": "修仙",
+    "names": ["石有根"],
+    "expected": "reject-protagonist",
+    "context": "用户只提供题材，模型生成名字后才补写山村家庭与斩断尘缘的反差",
+    "reason": "生活来源是为候选倒编的辩护，裸名的刻意和土味不能由剧情反差修复"
+  },
+  {
+    "id": "reject-negative-homophone",
+    "genre": "修仙",
+    "names": ["谢不迟"],
+    "expected": "reject-protagonist",
+    "context": "核心角色姓名在口播中稳定容易被听成谢不耻",
+    "reason": "负面同音会先于人物设定进入听觉，属于裸名门硬淘汰"
+  },
+  {
+    "id": "reject-seasonal-explanation-rescue",
+    "genre": "修仙",
+    "names": ["曹小满"],
+    "expected": "reject-protagonist",
+    "context": "没有人物资料时，模型用节气出生和底层逆袭故事替名字增加合理性",
+    "reason": "节气解释并非用户事实，删除解释后候选缺少针对这个人物的成立依据"
   }
 ]

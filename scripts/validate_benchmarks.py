@@ -25,7 +25,8 @@ def main() -> None:
         raise SystemExit("ERROR: expected at least five regression cases")
     ids: set[str] = set()
     for case in cases:
-        if set(case) != {"id", "genre", "names", "expected", "reason"}:
+        required = {"id", "genre", "names", "expected", "reason"}
+        if not required.issubset(case) or set(case) - required - {"context"}:
             raise SystemExit(f"ERROR: invalid fields in {case.get('id', '<unknown>')}")
         if case["id"] in ids:
             raise SystemExit(f"ERROR: duplicate id {case['id']}")

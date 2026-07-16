@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-07-16
+
+### Added
+
+- 五关之前新增“裸名门”，对误听、作者短语、怪异记忆和解释依赖执行前置否决；
+- 增加负面同音、倒编乡土来源和节气解释救名三个定性回归案例。
+
+### Changed
+
+- 只有题材、没有人物事实时，先追问一个关键事实，不再直接定名；
+- 命名来源只能证明候选可能出现，不能再挽救基础听感失败；
+- 不得声称模型内部预审等同于真实听者的十分钟记忆测试。
+
 ## [0.3.1] - 2026-07-15
 
 ### Fixed
@@ -53,7 +66,8 @@
 - 取名方法与反 AI 味盲审参考；
 - 姓名机械风险检查脚本及基础测试。
 
-[Unreleased]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.3.1...HEAD
+[Unreleased]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/kunhai-88/character-naming-author-skill/compare/v0.1.0...v0.2.0

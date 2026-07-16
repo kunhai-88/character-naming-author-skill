@@ -8,7 +8,7 @@ English | [简体中文](README.md)
 
 An Agent Skill for naming and auditing characters in Chinese short dramas, screenplays, fiction, and AI-generated drama projects.
 
-Instead of assembling attractive characters from personality labels—or treating bland realism as literary quality—the Skill reconstructs the naming situation, adds one life-derived point of distinction, and lets relationships and scenes make the name memorable.
+Instead of assembling attractive characters from personality labels—or treating bland realism as literary quality—the Skill first applies a no-explanation name gate. Names that are easily misheard, feel like authored phrases, or survive only through a backfilled story are rejected before social origin and narrative ownership are considered.
 
 ## What it does
 
@@ -24,6 +24,7 @@ Instead of assembling attractive characters from personality labels—or treatin
 - provides optional Mandarin initial, final, tone, homophone, and cast-collision checks;
 - prepares local blind tests and records human feedback without uploading manuscripts;
 - reviews the result without relying on symbolic explanations;
+- asks for one decisive character fact when only a genre is supplied, rather than inventing a biography to justify a name;
 - flags mechanical collisions with a deterministic Python tool.
 
 ## Install
@@ -68,5 +69,6 @@ python3 scripts/package_skill.py
 - The project does not collect or upload user manuscripts.
 - Mandarin phonetic checks do not replace dialect review or actor read-throughs.
 - Human blind-test results remain local and do not become permanent preferences from a single vote.
+- Internal model review is not presented as a real listener's ten-minute recall test.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and the [MIT License](LICENSE).
