@@ -43,6 +43,14 @@ class NameAuditTests(unittest.TestCase):
         self.assertEqual(case["names"], ["梁二"])
         self.assertEqual(case["expected"], "preserve")
 
+    def test_regression_cases_reject_explanation_rescue(self):
+        path = Path(__file__).parents[1] / "benchmarks" / "regression_cases.json"
+        cases = json.loads(path.read_text(encoding="utf-8"))
+        ids = {item["id"] for item in cases}
+        self.assertIn("reject-backfilled-rustic-gimmick", ids)
+        self.assertIn("reject-negative-homophone", ids)
+        self.assertIn("reject-seasonal-explanation-rescue", ids)
+
 
 if __name__ == "__main__":
     unittest.main()
